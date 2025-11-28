@@ -3,6 +3,13 @@ package com.luv2code.springcoredemo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+// Be explicit on component scanning if packages are beyond the springcoredemo folder
+//@SpringBootApplication(
+//        scanBasePackages = {
+//                "com.luv2code.springcoredemo",
+//                "com.luv2code.util"
+//        }
+//)
 @SpringBootApplication
 public class SpringcoredemoApplication {
 
