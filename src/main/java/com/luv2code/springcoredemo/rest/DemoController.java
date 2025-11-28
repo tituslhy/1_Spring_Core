@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
     private Coach myCoach;
     private Coach anotherCoach;
+    private Coach swimCoach;
 
     /**
      * Constructor injection. Recommended for non-optional dependencies
@@ -22,10 +23,12 @@ public class DemoController {
      */
     @Autowired
     public DemoController(@Qualifier("baseballCoach") Coach myCoach,
-                          @Qualifier("baseballCoach") Coach anotherCoach
+                          @Qualifier("baseballCoach") Coach anotherCoach,
+                          @Qualifier("aquatic") Coach swimCoach
     ) {
         this.myCoach = myCoach;
         this.anotherCoach = anotherCoach;
+        this.swimCoach = swimCoach;
     }
 
 //    /**
@@ -42,6 +45,11 @@ public class DemoController {
     @GetMapping("/dailyworkout")
     public String getDailyWorkout(){
         return myCoach.getDailyWorkout();
+    }
+
+    @GetMapping("/swimworkout")
+    public String getSwimWorkout(){
+        return swimCoach.getDailyWorkout();
     }
 
     @GetMapping("/check")
